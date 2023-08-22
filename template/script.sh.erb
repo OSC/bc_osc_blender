@@ -1,22 +1,21 @@
+#!/bin/bash
 
-# blender needs vglrun in order to access gpu 3D rendering
-module purge
-module load blender/2.91 project/classroom 
+# Set working directory to home directory
+cd "${HOME}"
 
-export OSC_CLASS_ID="<%= context.classroom %>"
-export OSC_PROJECT_ID="<%= context.account %>"
+(
+  export SEND_256_COLORS_TO_REMOTE=1
+  export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
+  export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
+  export XDG_CACHE_HOME="$(mktemp -d)"
+  export $(dbus-launch)
 
-
-CLASS_DIR="$HOME/osc_classes/${OSC_CLASS_ID:-osc_class}"
-
-# Copy over classroom materials if the env variable exists
-if [[ -n "$OSC_CLASS_FILES" ]]; then
-  set -x  
-  mkdir -p "$CLASS_DIR"
-  touch "$CLASS_DIR/0_${OSC_CLASS_ID:-osc_class}.md"
-  rsync -avz --ignore-existing "$OSC_CLASS_FILES" "$CLASS_DIR"
-  { set +x; } 2>/dev/null
-fi
+  module restore
+  xfwm4 --compositor=off --daemon --sm-client-disable
+  xsetroot -solid "#D3D3D3"
+  xfsettingsd --sm-client-disable
+  xfce4-panel --sm-client-disable
+) &
 
 # debug
 module list
@@ -25,5 +24,10 @@ set -x
 # Launch Sever
 echo "Starting Blender..."
 
+module purge
+module reset
+
+module load virtualgl <%= context.auto_modules_blender %>
+
 # use vglrun here to run blender
-vglbrun blender --data-dir
+vglrun blender

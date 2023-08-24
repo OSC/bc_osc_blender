@@ -1,7 +1,7 @@
 ---
 name: Blender
 category: Interactive Apps
-subcategory: Servers
+subcategory: GUIs
 role: batch_connect
 description: |
   This app will launch [Blender] for use in a classroom.

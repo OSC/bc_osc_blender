@@ -29,11 +29,17 @@ cd "${HOME}"
 #
 
 # Load the required environment
-module load xalt/latest virtualgl <%= context.auto_modules_blender %>
+module load xalt/latest <%= context.auto_modules_blender %>
 
 # Output debug info
 module list
 
 # Launch Blender
+set -x
+VERSION=${BLENDER_HOME#*/blender/}
 
-blender-softwaregl
+if [[ "$VERSION" < "2.91" || "$VERSION" == "2.91" ]]; then
+  blender-softwaregl
+else
+  blender
+fi

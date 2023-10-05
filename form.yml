@@ -1,6 +1,7 @@
 ---
 cluster:
   - "owens"
+  - "pitzer"
 form:
   - auto_accounts
   - bc_num_hours

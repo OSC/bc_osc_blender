@@ -39,4 +39,8 @@ module list
 set -x
 VERSION=${BLENDER_HOME#*/blender/}
 
-vglrun blender
+if [[ "$VERSION" < "2.91" ]]; then
+  blender-softwaregl
+else
+  vglrun blender
+fi

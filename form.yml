@@ -1,9 +1,10 @@
 ---
 cluster:
-  - "owens"
   - "pitzer"
 form:
   - auto_accounts
   - bc_num_hours
   - auto_modules_blender
-
+attributes:
+  auto_modules_blender:
+    default: false

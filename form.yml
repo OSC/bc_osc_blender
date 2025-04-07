@@ -5,6 +5,16 @@ form:
   - auto_accounts
   - bc_num_hours
   - auto_modules_blender
+  - gpu
 attributes:
   auto_modules_blender:
     default: false
+  gpu:
+    widget: radio_button
+    options:
+      - ['shared', 'shared']
+      - ['whole', 'whole']
+    value: 'shared'
+    required: true
+    help: |
+      Request a shared GPU or use the whole GPU.

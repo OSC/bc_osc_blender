@@ -1,5 +1,13 @@
 <%-
-  args = [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
+  args = [ "--nodes", "1", "--ntasks-per-node", "1" ]
+
+  extra = if gpu.to_s == 'whole'
+            ['--gpus-per-node', '1']
+          else
+            ['--partition', 'quick']
+          end
+
+  args = args + extra
 -%>
 ---
 batch_connect:

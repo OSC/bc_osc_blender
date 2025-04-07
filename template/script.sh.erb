@@ -16,7 +16,6 @@ export XDG_CACHE_HOME="$(mktemp -d)"
 export $(dbus-launch)
 
 module restore
-set -x
 
 source /etc/os-release
 
@@ -50,5 +49,5 @@ VERSION=${BLENDER_HOME#*/blender/}
 if [[ "$VERSION" < "2.91" ]]; then
   blender-softwaregl
 else
-  vglrun blender
+  vglrun -d $DISPLAY blender
 fi

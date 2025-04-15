@@ -1,10 +1,10 @@
 <%-
-  args = [ "--nodes", "1", "--ntasks-per-node", "1" ]
+  args = [ "--nodes", "1"]
 
   extra = if gpu.to_s == 'whole'
-            ['--gpus-per-node', '1']
+            ['--gpus-per-node', '1', '--ntasks-per-node', '8' ]
           else
-            ['--partition', 'quick']
+            ['--partition', 'quick', '--ntasks-per-node', '1' ]
           end
 
   args = args + extra

@@ -4,7 +4,7 @@
   extra = if gpu.to_s == 'whole'
             ['--gpus-per-node', '1', '--ntasks-per-node', '8' ]
           else
-            ['--partition', 'quick', '--ntasks-per-node', '1' ]
+            ['-p', 'quick', '--ntasks-per-node', '1' ]
           end
 
   args = args + extra

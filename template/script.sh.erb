@@ -37,11 +37,8 @@ fi
 
 # Load the required environment
 module load <%= context.auto_modules_blender %>
-<%- if context.cluster == 'pitzer-rhel9' -%>
 module load virtualgl/3.1.1
-<%- else -%>
-module load virtualgl/2.6.5
-<%- end -%>
+
 
 # Output debug info
 module list

@@ -2,19 +2,23 @@
 cluster:
   - "pitzer"
 form:
-  - auto_accounts
-  - bc_num_hours
   - auto_modules_blender
-  - gpu
+  - auto_accounts
+  - global_job_type
+  - global_enable_mem
+  - bc_num_slots
+  - global_num_cores
+  - global_mem
+  - global_gpus
+  - global_gpu_type
+  - global_enable_debug
+  - global_enable_vis
+  - bc_num_hours
+  - bc_vnc_resolution
+  - bc_email_on_started
+  - global_default_values     # required if the global_job_type is used
 attributes:
   auto_modules_blender:
     default: false
-  gpu:
-    widget: radio_button
-    options:
-      - ['shared', 'shared']
-      - ['whole', 'whole']
-    value: 'shared'
+  bc_vnc_resolution:
     required: true
-    help: |
-      Request a shared GPU or use the whole GPU.

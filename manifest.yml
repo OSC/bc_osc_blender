@@ -4,8 +4,14 @@ category: Interactive Apps
 subcategory: GUIs
 role: batch_connect
 description: |
-  This app will launch [Blender] for use in a classroom.
+  This app will launch a [Blender] GUI on the [Ascend], [Cardinal], or [Pitzer] cluster.
+  You will be able to interact with the GUI through a [VNC] session.
 
-  [Blender]: https://github.com/blender/blender
-  [Blender Wiki]: https://wiki.blender.org/wiki
-  [Blender Release Env]: https://wiki.blender.org/wiki/Building_Blender/Linux/CentOS7ReleaseEnvironment
+  [Blender]: https://docs.blender.org/manual/en/latest/getting_started/about/index.html
+  [Blender Developer Documentation]: https://developer.blender.org/docs/
+  [Blender Git]: https://github.com/blender/blender
+  [Blender Release Env]: https://developer.blender.org/docs/handbook/release_process/build/
+  [Ascend]: https://www.osc.edu/resources/technical_support/supercomputers/ascend
+  [Cardinal]: https://www.osc.edu/resources/technical_support/supercomputers/cardinal
+  [Pitzer]: https://www.osc.edu/resources/technical_support/supercomputers/pitzer
+  [VNC]: https://en.wikipedia.org/wiki/VNC

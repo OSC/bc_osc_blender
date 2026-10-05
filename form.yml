@@ -1,5 +1,7 @@
 ---
 cluster:
+  - "ascend"
+  - "cardinal"
   - "pitzer"
 form:
   - auto_modules_blender
